@@ -12,7 +12,11 @@ const config = {
 		adapter: adapter({
 			fallback: '200.html'
 		}),
-		prerender: { entries: [] }
+		prerender: { entries: [] },
+		alias: {
+			$types: 'src/types',
+			$stores: 'src/stores'
+		}
 	}
 };
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ClipType } from '../types';
+	import type { ClipType } from '$types/types';
 
 	export let clip: ClipType;
 </script>

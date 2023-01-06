@@ -1,7 +1,10 @@
-<script>
-	import ClipList from './ClipList.svelte';
-	import { clipsStore } from '../stores';
+<script lang="ts">
+	import { clipsStore } from '$stores/clips';
+	import ClipList from './components/ClipList.svelte';
+	import AddClip from './components/AddClip.svelte';
 </script>
 
 <h1>SPA HOME</h1>
-<ClipList bind:clips={$clipsStore} />
+
+<AddClip bind:clips={$clipsStore} />
+<ClipList clips={$clipsStore} />
