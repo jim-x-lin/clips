@@ -1,10 +1,11 @@
 # clips
 
-A progressive clipboard manager, built with svelte kit, hosted at ---
+A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted at ---
 
 ## TODO
 
 - [ ] add styling
+- [ ] sorting, ordering
 - [ ] edit
 - [ ] delete and restore
 - [ ] offline persistence
@@ -12,6 +13,5 @@ A progressive clipboard manager, built with svelte kit, hosted at ---
 - [ ] trimming and sanitization
 - [ ] content aware formatting and presentation
 - [ ] clip annotation
-- [ ] sorting and favoriting
-- [ ] grouping and tagging
+- [ ] favoriting, grouping and tagging
 - [ ] settings
