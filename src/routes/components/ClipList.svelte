@@ -1,16 +1,20 @@
 <script lang="ts">
 	import Clip from './Clip.svelte';
 	import type { ClipType } from '$types/types';
-	import CopyToClipboard from './CopyToClipboard.svelte';
 
 	export let clips: ClipType[];
+
+	function sortRecent(clipA: ClipType, clipB: ClipType): number {
+		return clipB.createdAtMs - clipA.createdAtMs;
+	}
+
+	function organized(clips: ClipType[]) {
+		return clips.sort(sortRecent);
+	}
 </script>
 
-<ul>
-	{#each clips as clip (clip.id)}
-		<li>
-			<Clip {clip} />
-			<CopyToClipboard content={clip.content} />
-		</li>
+<div class="container mx-auto max-w-screen-sm">
+	{#each organized(clips) as clip (clip.id)}
+		<Clip {clip} />
 	{/each}
-</ul>
+</div>
