@@ -6,6 +6,11 @@ export type ClipType = {
 	format: 'text' | 'longText' | 'url' | 'code' | 'key';
 };
 
+export const enum SortEnum {
+	RECENCY,
+	FORMAT
+}
+
 export type JsonValueType =
 	| string
 	| number

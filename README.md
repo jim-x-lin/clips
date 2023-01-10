@@ -5,7 +5,7 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 ## TODO
 
 - [x] add styling
-- [ ] sorting, ordering
+- [x] sorting
 - [ ] edit
 - [ ] delete and restore
 - [ ] offline persistence
