@@ -1,11 +1,13 @@
 <script lang="ts">
-	import Clip from './Clip.svelte';
+	import ViewClip from './ViewClip.svelte';
+	import EditClip from './EditClip.svelte';
 	import type { ClipType } from '$types/types';
 	import { SortEnum } from '$types/types';
 	import SortClips from './SortClips.svelte';
 
 	export let clips: ClipType[];
 
+	let editClipId: string | undefined = undefined;
 	let sortCriteria: SortEnum = SortEnum.RECENCY;
 	let sortReverse: boolean = false;
 
@@ -35,6 +37,10 @@
 <div class="container mx-auto mt-4 max-w-screen-sm ">
 	<SortClips bind:sortCriteria bind:sortReverse />
 	{#each organized(clips, sortCriteria, sortReverse) as clip (clip.id)}
-		<Clip {clip} />
+		{#if clip.id === editClipId}
+			<EditClip bind:clip bind:editClipId />
+		{:else}
+			<ViewClip {clip} bind:editClipId />
+		{/if}
 	{/each}
 </div>

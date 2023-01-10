@@ -40,7 +40,7 @@
 	<div class="flex justify-center">
 		<button
 			on:click={handleClickClear}
-			class="text-md mx-2 w-16 rounded-md border-none bg-rose-500 px-2 py-1 text-white hover:bg-rose-600"
+			class="text-md mx-2 w-16 rounded-md border-none bg-red-500 px-2 py-1 text-white hover:bg-red-600"
 			>Clear</button
 		>
 		<button

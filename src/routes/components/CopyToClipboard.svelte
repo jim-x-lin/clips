@@ -13,5 +13,6 @@
 
 <button
 	on:click={handleClick}
-	class="px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white">copy</button
+	class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
+	>copy</button
 >
