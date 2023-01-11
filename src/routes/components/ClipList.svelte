@@ -11,6 +11,17 @@
 	let sortCriteria: SortEnum = SortEnum.RECENCY;
 	let sortReverse: boolean = false;
 
+	function updateClip(clipId: string, content: string) {
+		const i = clips.findIndex((clip) => clip.id === clipId);
+		clips[i] = { ...clips[i], content };
+		editClipId = undefined;
+	}
+
+	function deleteClip(clipId: string) {
+		const i = clips.findIndex((clip) => clip.id === clipId);
+		clips[i] = { ...clips[i], deletedAtMs: Date.now() };
+	}
+
 	function sortRecency(clipA: ClipType, clipB: ClipType): number {
 		return clipB.createdAtMs - clipA.createdAtMs;
 	}
@@ -30,7 +41,8 @@
 	}
 
 	function organized(clips: ClipType[], sortCriteria: SortEnum, sortReverse: boolean): ClipType[] {
-		return sort(clips, sortCriteria, sortReverse);
+		const filteredClips = clips.filter((clip) => !clip.deletedAtMs);
+		return sort(filteredClips, sortCriteria, sortReverse);
 	}
 </script>
 
@@ -38,7 +50,7 @@
 	<SortClips bind:sortCriteria bind:sortReverse />
 	{#each organized(clips, sortCriteria, sortReverse) as clip (clip.id)}
 		{#if clip.id === editClipId}
-			<EditClip bind:clip bind:editClipId />
+			<EditClip {clip} {updateClip} {deleteClip} bind:editClipId />
 		{:else}
 			<ViewClip {clip} bind:editClipId />
 		{/if}
