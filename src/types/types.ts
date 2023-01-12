@@ -12,6 +12,11 @@ export const enum SortEnum {
 	FORMAT
 }
 
+export const enum FilterEnum {
+	ALL,
+	DELETED
+}
+
 export type JsonValueType =
 	| string
 	| number

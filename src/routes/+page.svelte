@@ -1,13 +1,19 @@
 <script lang="ts">
 	import { clipsStore } from '$stores/clips';
 	import AddClip from './components/AddClip.svelte';
+	import SideBar from './components/SideBar.svelte';
 	import ClipList from './components/ClipList.svelte';
 	import Debug from './components/Debug.svelte';
+	import { FilterEnum } from '$types/types';
+
+	let filterCriteria: FilterEnum = FilterEnum.ALL;
 </script>
 
-<div class="container mx-auto min-w-max px-8 py-8">
-	<h1 class="black text-xl font-bold">CLIPS</h1>
-	<Debug />
-	<AddClip bind:clips={$clipsStore} />
-	<ClipList clips={$clipsStore} />
+<div class="flex flex-row">
+	<SideBar bind:filterCriteria />
+	<div class="container px-4 py-8">
+		<Debug />
+		<AddClip bind:clips={$clipsStore} />
+		<ClipList clips={$clipsStore} {filterCriteria} />
+	</div>
 </div>
