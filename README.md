@@ -8,7 +8,6 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 - [x] sorting
 - [x] edit
 - [x] delete and restore
-- [ ] offline persistence
 - [ ] duplicate detection
 - [ ] trimming and sanitization
 - [ ] content aware formatting and presentation
@@ -16,3 +15,4 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 - [ ] favoriting, grouping and tagging
 - [ ] hotkeys (ctrl-c / ctrl-v on focus / hover, etc.)
 - [ ] settings
+- [ ] indexDB for offline storage
