@@ -14,6 +14,6 @@
 	<div class="container px-4 py-8">
 		<Debug />
 		<AddClip bind:clips={$clipsStore} />
-		<ClipList clips={$clipsStore} {filterCriteria} />
+		<ClipList bind:clips={$clipsStore} {filterCriteria} />
 	</div>
 </div>
