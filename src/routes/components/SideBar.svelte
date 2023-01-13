@@ -1,11 +1,14 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import Logo from './Logo.svelte';
 	import { FilterEnum } from '$types/types';
 
 	export let filterCriteria: FilterEnum;
 </script>
 
 <div class="flex h-screen w-64 flex-initial flex-col justify-start bg-blue-200 py-8 px-4">
+	<div class="mx-auto mb-4">
+		<Logo />
+	</div>
 	<button
 		on:click={() => (filterCriteria = FilterEnum.ALL)}
 		class:bg-blue-600={filterCriteria === FilterEnum.ALL}

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import CopyToClipboard from './CopyToClipboard.svelte';
 	import type { ClipType } from '$types/types';
 
 	export let clip: ClipType;
