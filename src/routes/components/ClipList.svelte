@@ -15,7 +15,7 @@
 
 	function updateClip(clipId: string, content: string) {
 		const i = clips.findIndex((clip) => clip.id === clipId);
-		clips[i] = { ...clips[i], content };
+		clips[i] = { ...clips[i], content, updatedAtMs: Date.now() };
 		editClipId = undefined;
 	}
 
@@ -27,11 +27,11 @@
 
 	function restoreClip(clipId: string) {
 		const i = clips.findIndex((clip) => clip.id === clipId);
-		clips[i] = { ...clips[i], deletedAtMs: undefined };
+		clips[i] = { ...clips[i], deletedAtMs: undefined, updatedAtMs: Date.now() };
 	}
 
 	function sortRecency(clipA: ClipType, clipB: ClipType): number {
-		return clipB.createdAtMs - clipA.createdAtMs;
+		return clipB.updatedAtMs - clipA.updatedAtMs;
 	}
 
 	function sortFormat(clipA: ClipType, clipB: ClipType): number {

@@ -12,12 +12,14 @@
 			{
 				id: createId(),
 				createdAtMs: Date.now(),
+				updatedAtMs: Date.now(),
 				content: 'Lorem ipsum dolor sit amet',
 				format: 'text'
 			},
 			{
 				id: createId(),
 				createdAtMs: Date.now(),
+				updatedAtMs: Date.now(),
 				content: `
 Lorem ipsum dolor sit amet,
     consectetur
@@ -28,18 +30,21 @@ adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq
 			{
 				id: createId(),
 				createdAtMs: Date.now() + 1,
+				updatedAtMs: Date.now() + 1,
 				content: 'https://www.jimxlin.com/',
 				format: 'url'
 			},
 			{
 				id: createId(),
 				createdAtMs: Date.now() + 2,
+				updatedAtMs: Date.now() + 2,
 				content: 'docker exec -it ubuntu_bash bash',
 				format: 'code'
 			},
 			{
 				id: createId(),
 				createdAtMs: Date.now() + 3,
+				updatedAtMs: Date.now() + 3,
 				content: 'oo_SkDv6cBh0xlDTZCsxf31-mG_tAYKS9zstQNSnG_0',
 				format: 'key'
 			}
