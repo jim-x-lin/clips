@@ -2,10 +2,10 @@
 	import type { ClipType } from '$types/types';
 
 	export let clip: ClipType;
-	export let restoreClip: (clipdId: string) => void;
+	export let updateClip: (clip: ClipType) => void;
 
 	function handleClickRestore() {
-		restoreClip(clip.id);
+		updateClip({ ...clip, deletedAtMs: undefined });
 	}
 </script>
 

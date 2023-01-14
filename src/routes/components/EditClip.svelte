@@ -3,8 +3,7 @@
 
 	export let clip: ClipType;
 	export let editClipId: string | undefined;
-	export let updateClip: (clipdId: string, content: string) => void;
-	export let deleteClip: (clipdId: string) => void;
+	export let updateClip: (clip: ClipType) => void;
 
 	$: height = clip.format === 'longText' ? 'h-40' : 'h-16';
 
@@ -16,12 +15,12 @@
 
 	function handleClickDelete() {
 		if (!editClipId) return;
-		deleteClip(editClipId);
+		updateClip({ ...clip, deletedAtMs: Date.now() });
 	}
 
 	function handleClickSave() {
 		if (!editClipId) return;
-		updateClip(editClipId, newContent);
+		updateClip({ ...clip, content: newContent });
 	}
 </script>
 
