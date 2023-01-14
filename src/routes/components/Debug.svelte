@@ -14,7 +14,8 @@
 				createdAtMs: Date.now(),
 				updatedAtMs: Date.now(),
 				content: 'Lorem ipsum dolor sit amet',
-				format: 'text'
+				format: 'text',
+				copyCount: 0
 			},
 			{
 				id: createId(),
@@ -25,34 +26,38 @@ Lorem ipsum dolor sit amet,
     consectetur
 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 `,
-				format: 'longText'
+				format: 'longText',
+				copyCount: 0
 			},
 			{
 				id: createId(),
 				createdAtMs: Date.now() + 1,
 				updatedAtMs: Date.now() + 1,
 				content: 'https://www.jimxlin.com/',
-				format: 'url'
+				format: 'url',
+				copyCount: 0
 			},
 			{
 				id: createId(),
 				createdAtMs: Date.now() + 2,
 				updatedAtMs: Date.now() + 2,
 				content: 'docker exec -it ubuntu_bash bash',
-				format: 'code'
+				format: 'code',
+				copyCount: 0
 			},
 			{
 				id: createId(),
 				createdAtMs: Date.now() + 3,
 				updatedAtMs: Date.now() + 3,
 				content: 'oo_SkDv6cBh0xlDTZCsxf31-mG_tAYKS9zstQNSnG_0',
-				format: 'key'
+				format: 'key',
+				copyCount: 0
 			}
 		];
 	}
 
 	function handleClickSeed() {
-		$clipsStore = [...$clipsStore, ...seed()];
+		$clipsStore = [...$clipsStore, ...seed().reverse()];
 	}
 
 	function handleClickPrintDataToConsole() {

@@ -8,7 +8,8 @@ const initialClips: ClipType[] = [
 		createdAtMs: Date.now(),
 		updatedAtMs: Date.now(),
 		content: 'My first clip.',
-		format: 'text'
+		format: 'text',
+		copyCount: 0
 	}
 ];
 

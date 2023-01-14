@@ -3,7 +3,7 @@
 
 	export let clip: ClipType;
 	export let editClipId: string | undefined;
-	export let updateClip: (clip: ClipType) => void;
+	export let updateClip: (clip: ClipType, timestamp?: boolean) => void;
 
 	$: height = clip.format === 'longText' ? 'h-40' : 'h-16';
 

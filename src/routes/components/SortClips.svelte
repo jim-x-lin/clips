@@ -19,6 +19,12 @@
 		>Recency</button
 	>
 	<button
+		on:click={() => (sortCriteria = SortEnum.USAGE)}
+		class:ring={sortCriteria === SortEnum.USAGE}
+		class="text-md mx-2 w-24 rounded-md border-none bg-green-500 px-2 py-1 text-white ring-offset-2 hover:bg-green-600"
+		>Usage</button
+	>
+	<button
 		on:click={() => (sortCriteria = SortEnum.FORMAT)}
 		class:ring={sortCriteria === SortEnum.FORMAT}
 		class="text-md mx-2 w-24 rounded-md border-none bg-green-500 px-2 py-1 text-white ring-offset-2 hover:bg-green-600"

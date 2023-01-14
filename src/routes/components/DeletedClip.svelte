@@ -2,7 +2,7 @@
 	import type { ClipType } from '$types/types';
 
 	export let clip: ClipType;
-	export let updateClip: (clip: ClipType) => void;
+	export let updateClip: (clip: ClipType, timestamp?: boolean) => void;
 
 	function handleClickRestore() {
 		updateClip({ ...clip, deletedAtMs: undefined });

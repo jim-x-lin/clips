@@ -1,12 +1,21 @@
 <script lang="ts">
-	import CopyToClipboard from './CopyToClipboard.svelte';
 	import type { ClipType } from '$types/types';
 
 	export let clip: ClipType;
 	export let editClipId: string | undefined;
+	export let updateClip: (clip: ClipType, timestamp?: boolean) => void;
 
 	function handleClickEdit() {
 		editClipId = clip.id;
+	}
+
+	async function handleClickCopy() {
+		try {
+			await navigator.clipboard.writeText(clip.content);
+			updateClip({ ...clip, copyCount: clip.copyCount + 1 }, false);
+		} catch (err) {
+			console.log('Error writing to clipboard', err);
+		}
 	}
 </script>
 
@@ -16,5 +25,9 @@
 		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
 		on:click={handleClickEdit}>edit</button
 	>
-	<CopyToClipboard content={clip.content} />
+	<button
+		on:click={handleClickCopy}
+		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
+		>copy</button
+	>
 </div>

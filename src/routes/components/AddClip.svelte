@@ -23,8 +23,10 @@
 		const newClip: ClipType = {
 			id: createId(),
 			createdAtMs: Date.now(),
+			updatedAtMs: Date.now(),
 			content: contentToSave,
-			format: 'text'
+			format: 'text',
+			copyCount: 0
 		};
 		// use `set` instead of `update` so that data is persisted to localStorage
 		clips = [...clips, newClip];

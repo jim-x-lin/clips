@@ -6,11 +6,13 @@ export type ClipType = {
 	favorite?: boolean;
 	content: string;
 	format: 'text' | 'longText' | 'url' | 'code' | 'key';
+	copyCount: number;
 };
 
 export const enum SortEnum {
 	RECENCY,
-	FORMAT
+	FORMAT,
+	USAGE
 }
 
 export const enum FilterEnum {

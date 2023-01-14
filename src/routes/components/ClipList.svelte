@@ -13,14 +13,18 @@
 	let sortCriteria: SortEnum = SortEnum.RECENCY;
 	let sortReverse: boolean = false;
 
-	function updateClip(clip: ClipType) {
+	function updateClip(clip: ClipType, timestamp: boolean = true) {
 		const i = clips.findIndex((c) => c.id === clip.id);
-		clips[i] = { ...clip, updatedAtMs: Date.now() };
+		clips[i] = timestamp ? { ...clip, updatedAtMs: Date.now() } : { ...clip };
 		editClipId = undefined;
 	}
 
 	function sortRecency(clipA: ClipType, clipB: ClipType): number {
 		return clipB.updatedAtMs - clipA.updatedAtMs;
+	}
+
+	function sortUsage(clipA: ClipType, clipB: ClipType): number {
+		return clipB.copyCount - clipA.copyCount;
 	}
 
 	function sortFormat(clipA: ClipType, clipB: ClipType): number {
@@ -31,6 +35,8 @@
 		const sortedClips: ClipType[] =
 			sortCriteria === SortEnum.RECENCY
 				? clips.sort(sortRecency)
+				: sortCriteria === SortEnum.USAGE
+				? clips.sort(sortUsage)
 				: sortCriteria === SortEnum.FORMAT
 				? clips.sort(sortFormat)
 				: clips;
@@ -63,7 +69,7 @@
 		{:else if clip.deletedAtMs}
 			<DeletedClip {clip} {updateClip} />
 		{:else}
-			<ViewClip {clip} bind:editClipId />
+			<ViewClip {clip} {updateClip} bind:editClipId />
 		{/if}
 	{/each}
 </div>
