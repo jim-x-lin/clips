@@ -8,7 +8,7 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 - [x] sorting
 - [x] edit
 - [x] delete and restore
-- [ ] duplicate detection
+- [x] duplicate detection
 - [ ] trimming and sanitization
 - [ ] content aware formatting and presentation
 - [ ] clip annotation

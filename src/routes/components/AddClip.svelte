@@ -10,6 +10,12 @@
 		contentToSave = '';
 	}
 
+	function checkDuplicate(content: string): ClipType | undefined {
+		return clips.find((c) => {
+			return c.content === content;
+		});
+	}
+
 	async function handleClickPaste() {
 		try {
 			contentToSave = await navigator.clipboard.readText();
@@ -20,6 +26,19 @@
 
 	function handleClickSave() {
 		if (contentToSave.length === 0) return;
+
+		const duplicate = checkDuplicate(contentToSave);
+		let cancelSave;
+		if (duplicate) {
+			cancelSave = !window.confirm(
+				`Clip already exists ${duplicate.deletedAtMs ? ' (deleted)' : ''}, save anyway?`
+			);
+		}
+		if (cancelSave) {
+			contentToSave = '';
+			return;
+		}
+
 		const newClip: ClipType = {
 			id: createId(),
 			createdAtMs: Date.now(),
