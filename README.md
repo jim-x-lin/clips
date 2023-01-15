@@ -10,7 +10,7 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 - [x] delete and restore
 - [x] duplicate detection
 - [x] trimming and sanitization
-- [ ] content aware formatting and presentation
+- [x] content aware formatting and presentation
 - [ ] pinning, grouping and tagging
 - [ ] hotkeys (ctrl-c / ctrl-v on focus / hover, etc.)
 - [ ] clip annotation

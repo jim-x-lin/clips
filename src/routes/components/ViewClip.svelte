@@ -20,7 +20,17 @@
 </script>
 
 <div class="my-4 flex divide-x divide-solid rounded-md border border-gray-400 hover:outline">
-	<div class="flex-1 truncate px-2 py-1">{clip.content}</div>
+	<div class="flex-1 truncate px-2 py-1">
+		{#if clip.format === 'url'}
+			<span class="underline">{clip.content}</span>
+		{:else if clip.format === 'key'}
+			<span class="font-mono blur hover:blur-none">{clip.content}</span>
+		{:else if clip.format === 'code'}
+			<span class="font-mono">{clip.content}</span>
+		{:else}
+			{clip.content}
+		{/if}
+	</div>
 	<button
 		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
 		on:click={handleClickEdit}>edit</button
