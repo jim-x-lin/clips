@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import { createId } from '$lib/utils';
+	import { createId, cleanContentString } from '$lib/utils';
 
 	export let clips: ClipType[];
 
@@ -43,7 +43,7 @@
 			id: createId(),
 			createdAtMs: Date.now(),
 			updatedAtMs: Date.now(),
-			content: contentToSave,
+			content: cleanContentString(contentToSave),
 			format: 'text',
 			copyCount: 0
 		};
