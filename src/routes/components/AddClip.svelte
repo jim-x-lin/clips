@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import { createId, cleanContentString } from '$lib/utils';
+	import { createId, cleanContentString, categorizeContent } from '$lib/utils';
 
 	export let clips: ClipType[];
 
@@ -44,7 +44,7 @@
 			createdAtMs: Date.now(),
 			updatedAtMs: Date.now(),
 			content: cleanContentString(contentToSave),
-			format: 'text',
+			format: categorizeContent(contentToSave),
 			copyCount: 0
 		};
 		// use `set` instead of `update` so that data is persisted to localStorage

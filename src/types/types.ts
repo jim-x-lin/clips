@@ -1,3 +1,5 @@
+export type FormatType = 'text' | 'longText' | 'url' | 'code' | 'key';
+
 export type ClipType = {
 	id: string;
 	createdAtMs: number;
@@ -5,7 +7,7 @@ export type ClipType = {
 	deletedAtMs?: number;
 	favorite?: boolean;
 	content: string;
-	format: 'text' | 'longText' | 'url' | 'code' | 'key';
+	format: FormatType;
 	copyCount: number;
 };
 
