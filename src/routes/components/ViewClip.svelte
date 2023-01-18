@@ -20,17 +20,29 @@
 </script>
 
 <div class="my-4 flex divide-x divide-solid rounded-md border border-gray-400 hover:outline">
-	<div class="flex-1 truncate px-2 py-1">
-		{#if clip.format === 'url'}
-			<span class="underline">{clip.content}</span>
-		{:else if clip.format === 'key'}
-			<span class="font-mono blur hover:blur-none">{clip.content}</span>
-		{:else if clip.format === 'code'}
-			<span class="font-mono">{clip.content}</span>
-		{:else}
+	{#if clip.format === 'url'}
+		<div class="flex-1 truncate px-2 py-1">
+			<a class="underline" href={clip.content} rel="noopener noreferrer" target="_blank"
+				>{clip.content}</a
+			>
+		</div>
+	{:else if clip.format === 'key'}
+		<div class="flex-1 truncate px-2 py-1 font-mono blur-sm hover:blur-none">
 			{clip.content}
-		{/if}
-	</div>
+		</div>
+	{:else if clip.format === 'code'}
+		<div class="flex-1 truncate px-2 py-1 font-mono font-semibold">
+			{clip.content}
+		</div>
+	{:else if clip.format === 'longText'}
+		<div class="flex-1 px-2 py-1 line-clamp-2">
+			{clip.content}
+		</div>
+	{:else}
+		<div class="flex-1 truncate px-2 py-1">
+			{clip.content}
+		</div>
+	{/if}
 	<button
 		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
 		on:click={handleClickEdit}>edit</button
