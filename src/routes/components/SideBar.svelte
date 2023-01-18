@@ -5,7 +5,9 @@
 	export let filterCriteria: FilterEnum;
 </script>
 
-<div class="flex h-screen w-64 flex-initial flex-col justify-start bg-blue-200 py-8 px-4">
+<div
+	class="sticky top-0 flex h-screen w-64 flex-initial flex-col justify-start bg-blue-200 py-8 px-4"
+>
 	<div class="mx-auto mb-4">
 		<Logo />
 	</div>

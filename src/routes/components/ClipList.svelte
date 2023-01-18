@@ -61,7 +61,7 @@
 	}
 </script>
 
-<div class="container mx-auto mt-4 max-w-screen-sm ">
+<div class="container mx-auto mt-4 max-w-screen-sm">
 	<SortClips bind:sortCriteria bind:sortReverse />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}
 		{#if clip.id === editClipId}
