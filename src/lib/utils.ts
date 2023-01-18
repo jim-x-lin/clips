@@ -8,16 +8,19 @@ export const cleanContentString = (content: string): string => {
 };
 
 export const categorizeContent = (content: string): FormatType => {
+	if (/^[a-zA-Z0-9_\-.+]+@([a-zA-Z0-9_\-]+\.)+[a-z]{2,4}$/.test(content)) {
+		return 'email';
+	}
 	if (/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(content)) {
 		return 'url';
 	}
 	if (/^[A-Za-z]+.+ -[A-Za-z]+/.test(content)) {
 		return 'code';
 	}
-	if (/^[\S]+$/.test(content)) {
+	if (content.length > 7 && /^[\S]+$/.test(content)) {
 		return 'key';
 	}
-	if (content.length > 256 || /\r|\n/.test(content)) {
+	if (content.length > 255 || /\r|\n/.test(content)) {
 		return 'longText';
 	}
 	return 'text';

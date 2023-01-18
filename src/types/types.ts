@@ -1,4 +1,4 @@
-export type FormatType = 'text' | 'longText' | 'url' | 'code' | 'key';
+export type FormatType = 'text' | 'longText' | 'url' | 'email' | 'code' | 'key';
 
 export type ClipType = {
 	id: string;

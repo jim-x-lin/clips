@@ -20,7 +20,11 @@
 </script>
 
 <div class="my-4 flex divide-x divide-solid rounded-md border border-gray-400 hover:outline">
-	{#if clip.format === 'url'}
+	{#if clip.format === 'email'}
+		<div class="flex-1 truncate px-2 py-1 underline">
+			{clip.content}
+		</div>
+	{:else if clip.format === 'url'}
 		<div class="flex-1 truncate px-2 py-1">
 			<a class="underline" href={clip.content} rel="noopener noreferrer" target="_blank"
 				>{clip.content}</a
