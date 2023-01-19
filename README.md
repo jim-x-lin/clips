@@ -11,11 +11,11 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 - [x] duplicate detection
 - [x] trimming and sanitization
 - [x] content aware formatting and presentation
-- [ ] pinning
-- [ ] grouping and/or tagging
+- [x] pinning
 - [ ] import / export json
-- [ ] hotkeys (ctrl-c / ctrl-v on focus / hover, etc.)
+- [ ] grouping and/or tagging
 - [ ] clip annotation
 - [ ] manual format change
 - [ ] settings
+- [ ] hotkeys (ctrl-c / ctrl-v on focus / hover, etc.)
 - [ ] indexDB for offline storage

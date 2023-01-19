@@ -32,9 +32,12 @@
 <div
 	class="my-4 mb-2 h-fit w-full divide-y rounded-lg border border-gray-400 ring-4 ring-gray-300 ring-offset-2"
 >
-	<div class="py-1 px-2">
-		<i>created at {clip.createdAtMs}</i>
-		<i>format is {clip.format}</i>
+	<div class="flex divide-x text-sm italic text-gray-500">
+		<div class="grow py-1 px-2 text-center">
+			updated on {new Date(clip.updatedAtMs).toISOString().slice(0, 10)}
+		</div>
+		<div class="grow py-1 px-2 text-center">formatted as {clip.format}</div>
+		<div class="grow py-1 px-2 text-center">copied {clip.copyCount} times</div>
 	</div>
 	<textarea bind:value={newContent} class="w-full py-1 px-2 ring-0 {height}" />
 	<div class="flex">
@@ -48,7 +51,7 @@
 		>
 		<button
 			on:click={handleClickPin}
-			class="hover:bg-greeb=n-600 grow bg-green-500 py-1 px-2 text-white">Pin</button
+			class="hover:bg-greeb=n-600 grow bg-yellow-500 py-1 px-2 text-white">Pin</button
 		>
 		<button
 			on:click={handleClickSave}
