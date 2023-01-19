@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
+	import ClipContent from './ClipContent.svelte';
 
 	export let clip: ClipType;
 	export let unpinClip: (clip: ClipType) => void;
@@ -20,7 +21,7 @@
 </script>
 
 <div class="my-4 flex divide-x divide-solid rounded-md border border-yellow-500 hover:outline">
-	<div class="flex-1 px-2 py-1 line-clamp-2">{clip.content}</div>
+	<ClipContent {clip} />
 	<button
 		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200"
 		on:click={handleClickUnpin}>unpin</button
