@@ -2,7 +2,6 @@
 	import type { ClipType } from '$types/types';
 	import { SortEnum, FilterEnum } from '$types/types';
 	import ViewClip from './ViewClip.svelte';
-	import DeletedClip from './DeletedClip.svelte';
 	import EditClip from './EditClip.svelte';
 	import OrganizeClips from './OrganizeClips.svelte';
 
@@ -14,18 +13,10 @@
 	let sortReverse: boolean = false;
 	let deletedClipsCount: number;
 
-	$: deletedClipsCount = clips.filter((c) => c.deletedAtMs).length;
-
 	function updateClip(clip: ClipType, timestamp: boolean = true): void {
 		const i = clips.findIndex((c) => c.id === clip.id);
 		clips[i] = timestamp ? { ...clip, updatedAtMs: Date.now() } : { ...clip };
 		editClipId = undefined;
-	}
-
-	function removeDeletedClips(): void {
-		const cancelRemoval = !window.confirm(`Permanently delete ${deletedClipsCount} clips?`);
-		if (cancelRemoval) return;
-		clips = clips.filter((c) => !c.deletedAtMs);
 	}
 
 	function sortRecency(clipA: ClipType, clipB: ClipType): number {
@@ -80,18 +71,10 @@
 </script>
 
 <div class="container mx-auto mt-4 max-w-screen-lg">
-	<OrganizeClips
-		bind:sortCriteria
-		bind:sortReverse
-		{filterCriteria}
-		{deletedClipsCount}
-		{removeDeletedClips}
-	/>
+	<OrganizeClips bind:sortCriteria bind:sortReverse />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}
 		{#if clip.id === editClipId}
 			<EditClip {clip} {updateClip} bind:editClipId />
-		{:else if clip.deletedAtMs}
-			<DeletedClip {clip} {updateClip} />
 		{:else}
 			<ViewClip {clip} {updateClip} bind:editClipId />
 		{/if}
