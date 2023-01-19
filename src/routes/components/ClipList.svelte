@@ -11,7 +11,6 @@
 	let editClipId: string | undefined = undefined;
 	let sortCriteria: SortEnum = SortEnum.RECENCY;
 	let sortReverse: boolean = false;
-	let deletedClipsCount: number;
 
 	function updateClip(clip: ClipType, timestamp: boolean = true): void {
 		const i = clips.findIndex((c) => c.id === clip.id);
@@ -31,16 +30,7 @@
 		return clipA.format.localeCompare(clipB.format);
 	}
 
-	function sort(
-		clips: ClipType[],
-		sortCriteria: SortEnum,
-		sortReverse: boolean,
-		filterCriteria?: FilterEnum
-	): ClipType[] {
-		if (filterCriteria === FilterEnum.DELETED) {
-			return clips.sort(sortRecency);
-		}
-
+	function sort(clips: ClipType[], sortCriteria: SortEnum, sortReverse: boolean): ClipType[] {
 		const sortedClips: ClipType[] =
 			sortCriteria === SortEnum.RECENCY
 				? clips.sort(sortRecency)

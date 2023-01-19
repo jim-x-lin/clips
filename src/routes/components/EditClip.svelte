@@ -18,6 +18,11 @@
 		updateClip({ ...clip, deletedAtMs: Date.now() });
 	}
 
+	function handleClickPin() {
+		if (!editClipId) return;
+		updateClip({ ...clip, pinnedAtMs: Date.now() }, false);
+	}
+
 	function handleClickSave() {
 		if (!editClipId) return;
 		updateClip({ ...clip, content: newContent });
@@ -40,6 +45,10 @@
 		<button
 			on:click={handleClickDelete}
 			class="grow bg-red-500 py-1 px-2 text-white hover:bg-red-600">Delete</button
+		>
+		<button
+			on:click={handleClickPin}
+			class="hover:bg-greeb=n-600 grow bg-green-500 py-1 px-2 text-white">Pin</button
 		>
 		<button
 			on:click={handleClickSave}
