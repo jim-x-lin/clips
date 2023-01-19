@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
 	import { SortEnum, FilterEnum } from '$types/types';
+	import ClipListPinned from './ClipListPinned.svelte';
 	import ViewClip from './ViewClip.svelte';
 	import EditClip from './EditClip.svelte';
 	import OrganizeClips from './OrganizeClips.svelte';
@@ -61,6 +62,7 @@
 </script>
 
 <div class="container mx-auto mt-4 max-w-screen-lg">
+	<ClipListPinned {clips} {updateClip} />
 	<OrganizeClips bind:sortCriteria bind:sortReverse />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}
 		{#if clip.id === editClipId}

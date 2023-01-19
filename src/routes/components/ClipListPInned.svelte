@@ -3,6 +3,7 @@
 	import PinnedClip from './PinnedClip.svelte';
 
 	export let clips: ClipType[];
+	export let updateClip: (clip: ClipType, timestamp?: boolean) => void;
 
 	function unpinClip(clip: ClipType): void {
 		const i = clips.findIndex((c) => c.id === clip.id);
@@ -24,6 +25,6 @@
 
 <div class="container mx-auto mt-4 max-w-screen-lg">
 	{#each organized(clips) as clip (clip.id)}
-		<PinnedClip {clip} {unpinClip} />
+		<PinnedClip {clip} {unpinClip} {updateClip} />
 	{/each}
 </div>
