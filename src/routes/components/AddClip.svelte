@@ -53,26 +53,20 @@
 	}
 </script>
 
-<div class="mx-auto w-1/2">
-	<textarea
-		bind:value={contentToSave}
-		class="h-10h my-4 mb-2 w-full resize-y rounded-md border border-gray-400 px-2 py-1"
-	/>
-	<div class="flex justify-center">
+<div class="mx-auto my-4 w-96 divide-y rounded-lg border border-gray-400">
+	<textarea bind:value={contentToSave} class="h-20 w-full resize-y rounded-t-lg py-1 px-2" />
+	<div class="flex justify-center divide-x divide-solid border-gray-400">
 		<button
 			on:click={handleClickClear}
-			class="text-md mx-2 w-16 rounded-md border-none bg-red-500 px-2 py-1 text-white hover:bg-red-600"
-			>Clear</button
+			class="text-md grow rounded-bl-md border-none px-2 py-1 hover:bg-gray-300">Clear</button
 		>
-		<button
-			on:click={handleClickPaste}
-			class="text-md mx-2 w-16 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+		<button on:click={handleClickPaste} class="text-md grow border-none px-2 py-1 hover:bg-gray-300"
 			>Paste</button
 		>
 		<button
+			class:cursor-not-allowed={contentToSave.length === 0}
 			on:click={handleClickSave}
-			class="text-md mx-2 w-16 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
-			>Save</button
+			class="text-md grow rounded-br-md border-none px-2 py-1 hover:bg-gray-300">Save</button
 		>
 	</div>
 </div>

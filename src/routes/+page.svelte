@@ -13,7 +13,7 @@
 	<SideBar bind:filterCriteria />
 	<div class="container px-4 py-8">
 		<Debug />
-		<AddClip bind:clips={$clipsStore} />
+		{#if filterCriteria !== FilterEnum.DELETED}<AddClip bind:clips={$clipsStore} />{/if}
 		<ClipList bind:clips={$clipsStore} {filterCriteria} />
 	</div>
 </div>
