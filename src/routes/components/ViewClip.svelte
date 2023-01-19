@@ -48,12 +48,11 @@
 		</div>
 	{/if}
 	<button
-		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
+		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200"
 		on:click={handleClickEdit}>edit</button
 	>
 	<button
 		on:click={handleClickCopy}
-		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-400 hover:text-white"
-		>copy</button
+		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200">copy</button
 	>
 </div>

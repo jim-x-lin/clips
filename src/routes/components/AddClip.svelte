@@ -68,15 +68,15 @@
 	<div class="flex justify-center divide-x divide-solid border-gray-400">
 		<button
 			on:click={handleClickClear}
-			class="text-md grow rounded-bl-md border-none px-2 py-1 hover:bg-gray-300">Clear</button
+			class="text-md grow rounded-bl-md border-none px-2 py-1 hover:bg-gray-200">Clear</button
 		>
-		<button on:click={handleClickPaste} class="text-md grow border-none px-2 py-1 hover:bg-gray-300"
+		<button on:click={handleClickPaste} class="text-md grow border-none px-2 py-1 hover:bg-gray-200"
 			>Paste</button
 		>
 		<button
 			class:cursor-not-allowed={contentToSave.length === 0}
 			on:click={handleClickSave}
-			class="text-md grow rounded-br-md border-none px-2 py-1 hover:bg-gray-300">Save</button
+			class="text-md grow rounded-br-md border-none px-2 py-1 hover:bg-gray-200">Save</button
 		>
 	</div>
 </div>
