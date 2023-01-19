@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { ClipType } from '$types/types';
-	import { createId, cleanContentString, categorizeContent } from '$lib/utils';
+	import { TidyURL } from 'tidy-url';
+	import type { ClipType, FormatType } from '$types/types';
+	import { createId, categorizeContent } from '$lib/utils';
 
 	export let clips: ClipType[];
 
@@ -9,6 +10,13 @@
 	function handleClickClear() {
 		contentToSave = '';
 	}
+
+	export const cleanContentAndFormat = (content: string): [string, FormatType] => {
+		const format = categorizeContent(contentToSave);
+		let clean = content.trim();
+		if (format === 'url') clean = TidyURL.clean(content).url;
+		return [clean, format];
+	};
 
 	function checkDuplicate(content: string): ClipType | undefined {
 		return clips.find((c) => {
@@ -39,12 +47,14 @@
 			return;
 		}
 
+		const [content, format] = cleanContentAndFormat(contentToSave);
+
 		const newClip: ClipType = {
 			id: createId(),
 			createdAtMs: Date.now(),
 			updatedAtMs: Date.now(),
-			content: cleanContentString(contentToSave),
-			format: categorizeContent(contentToSave),
+			content,
+			format,
 			copyCount: 0
 		};
 		// use `set` instead of `update` so that data is persisted to localStorage

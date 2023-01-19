@@ -13,6 +13,7 @@ A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted 
 - [x] content aware formatting and presentation
 - [ ] pinning
 - [ ] grouping and/or tagging
+- [ ] import / export json
 - [ ] hotkeys (ctrl-c / ctrl-v on focus / hover, etc.)
 - [ ] clip annotation
 - [ ] manual format change

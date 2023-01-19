@@ -1,11 +1,6 @@
 import type { FormatType } from '$types/types';
-import { text } from 'svelte/internal';
 
 export const createId = () => `${Date.now()}-${Math.floor(Math.random() * 999)}`;
-
-export const cleanContentString = (content: string): string => {
-	return content.trim();
-};
 
 export const categorizeContent = (content: string): FormatType => {
 	if (/^[a-zA-Z0-9_\-.+]+@([a-zA-Z0-9_\-]+\.)+[a-z]{2,4}$/.test(content)) {
