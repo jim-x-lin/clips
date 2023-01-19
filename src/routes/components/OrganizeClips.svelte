@@ -5,7 +5,7 @@
 	export let sortReverse: boolean;
 </script>
 
-<div class="mt-8 flex">
+<div class="flex">
 	<button
 		on:click={() => (sortReverse = !sortReverse)}
 		class:ring={sortReverse}

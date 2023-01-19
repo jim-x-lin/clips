@@ -61,7 +61,7 @@
 	}
 </script>
 
-<div class="container mx-auto mt-4 max-w-screen-lg">
+<div class="container mx-auto max-w-screen-lg">
 	<ClipListPinned {clips} {updateClip} />
 	<OrganizeClips bind:sortCriteria bind:sortReverse />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}

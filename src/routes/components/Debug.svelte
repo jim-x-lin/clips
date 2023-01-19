@@ -65,7 +65,7 @@ adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq
 	}
 </script>
 
-<div class="w-full border-4 border-dashed border-red-600 p-2">
+<div class="mb-8 w-full border-4 border-dashed border-red-600 p-2">
 	<button
 		on:click={handleClickWipe}
 		class="text-md mx-1 border-none bg-yellow-300 px-2 py-1 font-bold text-red-600"

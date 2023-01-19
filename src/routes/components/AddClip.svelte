@@ -63,9 +63,9 @@
 	}
 </script>
 
-<div class="mx-auto my-4 w-96 divide-y rounded-lg border border-gray-400">
-	<textarea bind:value={contentToSave} class="h-20 w-full resize-y rounded-t-lg py-1 px-2" />
-	<div class="flex justify-center divide-x divide-solid border-gray-400">
+<div class="mx-auto mb-8 max-w-xl divide-y rounded-lg border-2 border-blue-400">
+	<textarea bind:value={contentToSave} class="h-16 w-full resize-y rounded-t-lg py-1 px-2" />
+	<div class="flex justify-center divide-x divide-solid border-blue-400">
 		<button
 			on:click={handleClickClear}
 			class="text-md grow rounded-bl-md border-none px-2 py-1 hover:bg-gray-200">Clear</button

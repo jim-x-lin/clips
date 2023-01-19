@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="container mx-auto mt-4 max-w-screen-lg">
+<div class="container mx-auto mb-8 max-w-screen-lg">
 	{#each organized(clips) as clip (clip.id)}
 		<PinnedClip {clip} {unpinClip} {updateClip} />
 	{/each}
