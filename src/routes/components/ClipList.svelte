@@ -63,7 +63,7 @@
 
 <div class="container mx-auto max-w-screen-lg">
 	<ClipListPinned {clips} {updateClip} />
-	<OrganizeClips bind:sortCriteria bind:sortReverse />
+	<OrganizeClips bind:sortCriteria bind:sortReverse bind:editClipId />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}
 		{#if clip.id === editClipId}
 			<EditClip {clip} {updateClip} bind:editClipId />
