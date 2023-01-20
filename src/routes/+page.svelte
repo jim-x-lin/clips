@@ -11,7 +11,7 @@
 </script>
 
 <div class="flex flex-row">
-	<SideBar bind:filterCriteria />
+	<SideBar bind:filterCriteria bind:clips={$clipsStore} />
 	<div class="container px-4 py-8">
 		<Debug />
 		{#if filterCriteria !== FilterEnum.DELETED}<AddClip bind:clips={$clipsStore} />{/if}

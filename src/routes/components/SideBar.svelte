@@ -1,8 +1,11 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
+	import ExportClips from './ExportClips.svelte';
 	import { FilterEnum } from '$types/types';
+	import type { ClipType } from '$types/types';
 
 	export let filterCriteria: FilterEnum;
+	export let clips: ClipType[];
 </script>
 
 <div
@@ -14,13 +17,14 @@
 	<button
 		on:click={() => (filterCriteria = FilterEnum.ALL)}
 		class:bg-blue-600={filterCriteria === FilterEnum.ALL}
-		class="text-md mx-2 mb-4 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+		class="text-md mb-4 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
 		>All Clips</button
 	>
 	<button
 		on:click={() => (filterCriteria = FilterEnum.DELETED)}
 		class:bg-blue-600={filterCriteria === FilterEnum.DELETED}
-		class="text-md mx-2 mb-4 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+		class="text-md mb-4 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
 		>Deleted Clips</button
 	>
+	<ExportClips {clips} />
 </div>
