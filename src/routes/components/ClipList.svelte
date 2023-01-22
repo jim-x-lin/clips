@@ -19,6 +19,12 @@
 		editClipId = undefined;
 	}
 
+	function updateSortCriteria(criteria: SortEnum, toggleReverse: boolean): void {
+		sortReverse = !sortReverse;
+		sortCriteria = criteria;
+		editClipId = undefined;
+	}
+
 	function sortRecency(clipA: ClipType, clipB: ClipType): number {
 		return clipB.updatedAtMs - clipA.updatedAtMs;
 	}
@@ -63,7 +69,7 @@
 
 <div class="container mx-auto max-w-screen-lg">
 	<ClipListPinned {clips} {updateClip} />
-	<OrganizeClips bind:sortCriteria bind:sortReverse bind:editClipId />
+	<OrganizeClips {updateSortCriteria} {sortCriteria} />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}
 		{#if clip.id === editClipId}
 			<EditClip {clip} {updateClip} bind:editClipId />

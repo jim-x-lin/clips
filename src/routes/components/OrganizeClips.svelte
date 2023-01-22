@@ -1,38 +1,23 @@
 <script lang="ts">
 	import { SortEnum } from '$types/types';
 
+	export let updateSortCriteria: (criteria: SortEnum, toggleReverse: boolean) => void;
 	export let sortCriteria: SortEnum;
-	export let sortReverse: boolean;
-	export let editClipId: string | undefined;
-
-	function handleClickReverse() {
-		sortReverse = !sortReverse;
-		editClipId = undefined;
-	}
 
 	function handleClickRecency() {
-		sortCriteria = SortEnum.RECENCY;
-		editClipId = undefined;
+		updateSortCriteria(SortEnum.RECENCY, sortCriteria === SortEnum.RECENCY);
 	}
 
 	function handleClickUsage() {
-		sortCriteria = SortEnum.USAGE;
-		editClipId = undefined;
+		updateSortCriteria(SortEnum.USAGE, sortCriteria === SortEnum.USAGE);
 	}
 
 	function handleClickFormat() {
-		sortCriteria = SortEnum.FORMAT;
-		editClipId = undefined;
+		updateSortCriteria(SortEnum.FORMAT, sortCriteria === SortEnum.FORMAT);
 	}
 </script>
 
 <div class="flex">
-	<button
-		on:click={handleClickReverse}
-		class:ring={sortReverse}
-		class="text-md mr-4 w-24 rounded-md border-none bg-emerald-500 px-2 py-1 text-white ring-offset-2 hover:bg-emerald-600"
-		>Reverse</button
-	>
 	<button
 		on:click={handleClickRecency}
 		class:ring={sortCriteria === SortEnum.RECENCY}
@@ -48,7 +33,7 @@
 	<button
 		on:click={handleClickFormat}
 		class:ring={sortCriteria === SortEnum.FORMAT}
-		class="text-md mx-2 w-24 rounded-md border-none bg-green-500 px-2 py-1 text-white ring-offset-2 hover:bg-green-600"
+		class="text-md mr-4 w-24 rounded-md border-none bg-green-500 px-2 py-1 text-white ring-offset-2 hover:bg-green-600"
 		>Format</button
 	>
 </div>
