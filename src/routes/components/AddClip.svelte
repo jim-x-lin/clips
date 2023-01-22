@@ -71,13 +71,13 @@
 		<div class="flex justify-center divide-x divide-solid border-blue-400">
 			<button
 				on:click={handleClickCancel}
-				class="text-md grow rounded-bl-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+				class="grow rounded-bl-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
 				>Cancel</button
 			>
 			<button
 				class:cursor-not-allowed={contentToSave.length === 0}
 				on:click={handleClickSave}
-				class="text-md grow rounded-br-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+				class="grow rounded-br-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
 				>Save</button
 			>
 		</div>
@@ -86,7 +86,7 @@
 	<div class="mx-auto mb-8 flex max-w-xl">
 		<button
 			on:click={handleClickPaste}
-			class="text-md mx-auto h-10 max-w-xl grow rounded-md border-2 bg-blue-500 py-1 px-2 text-white hover:bg-blue-600"
+			class="mx-auto h-10 max-w-xl grow rounded-md border-2 bg-blue-500 py-1 px-2 text-white hover:bg-blue-600"
 			>Paste</button
 		>
 	</div>

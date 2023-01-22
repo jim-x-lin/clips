@@ -6,7 +6,6 @@ export type ClipType = {
 	updatedAtMs: number;
 	deletedAtMs?: number;
 	pinnedAtMs?: number;
-	favorite?: boolean;
 	content: string;
 	format: FormatType;
 	copyCount: number;

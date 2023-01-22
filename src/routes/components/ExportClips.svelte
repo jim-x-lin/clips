@@ -17,6 +17,6 @@
 
 <button
 	on:click={handleClickExport}
-	class="text-md mb-4 rounded-md border-none bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+	class="mb-4 w-full rounded-md border-none bg-yellow-500 px-2 py-1 text-white hover:bg-yellow-600"
 	>Export</button
 >

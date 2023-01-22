@@ -20,3 +20,13 @@ export const categorizeContent = (content: string): FormatType => {
 	}
 	return 'text';
 };
+
+export const validClip = (clip: any) => {
+	if (typeof clip.id !== 'string') return false;
+	if (typeof clip.createdAtMs !== 'number') return false;
+	if (typeof clip.updatedAtMs !== 'number') return false;
+	if (typeof clip.content !== 'string') return false;
+	if (typeof clip.format !== 'string') return false;
+	if (typeof clip.copyCount !== 'number') return false;
+	return true;
+};
