@@ -40,6 +40,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-static": "^1.0.0",
 		"file-saver": "^2.0.5",
+		"nanoid": "^4.0.0",
 		"tidy-url": "^1.6.6"
 	}
 }

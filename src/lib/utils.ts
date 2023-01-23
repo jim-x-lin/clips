@@ -1,6 +1,10 @@
+import { customAlphabet } from 'nanoid/non-secure';
 import type { FormatType } from '$types/types';
 
-export const createId = () => `${Date.now()}-${Math.floor(Math.random() * 999)}`;
+export const createId = () => {
+	const nanoid = customAlphabet('1234567890abcdefghijklmnoprqstuvwxyz', 10);
+	return `${Date.now()}-${nanoid()}`;
+};
 
 export const categorizeContent = (content: string): FormatType => {
 	if (/^[a-zA-Z0-9_\-.+]+@([a-zA-Z0-9_\-]+\.)+[a-z]{2,4}$/.test(content)) {
