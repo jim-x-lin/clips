@@ -47,4 +47,13 @@
 			>Delete All Clips</button
 		>
 	</div>
+	<div class="flex grow flex-col justify-end text-center">
+		<a
+			href="https://github.com/jim-x-lin/clips"
+			rel="noopener noreferrer"
+			target="_blank"
+			class="mb-4 underline">Source</a
+		>
+		<p>© 2023 Jim Lin</p>
+	</div>
 </div>
