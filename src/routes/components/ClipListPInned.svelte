@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import PinnedClip from './PinnedClip.svelte';
+	import ClipViewPinned from './ClipViewPinned.svelte';
 
 	export let clips: ClipType[];
 	export let updateClip: (clip: ClipType, timestamp?: boolean) => void;
@@ -25,6 +25,6 @@
 
 <div class="container mx-auto mb-8 max-w-screen-lg">
 	{#each organized(clips) as clip (clip.id)}
-		<PinnedClip {clip} {unpinClip} {updateClip} />
+		<ClipViewPinned {clip} {unpinClip} {updateClip} />
 	{/each}
 </div>

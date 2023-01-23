@@ -2,7 +2,7 @@
 	import type { ClipType } from '$types/types';
 	import { SortEnum, FilterEnum } from '$types/types';
 	import ClipListPinned from './ClipListPinned.svelte';
-	import ViewClip from './ViewClip.svelte';
+	import ClipViewDefault from './ClipViewDefault.svelte';
 	import EditClip from './EditClip.svelte';
 	import OrganizeClips from './OrganizeClips.svelte';
 
@@ -74,7 +74,7 @@
 		{#if clip.id === editClipId}
 			<EditClip {clip} {updateClip} bind:editClipId />
 		{:else}
-			<ViewClip {clip} {updateClip} bind:editClipId />
+			<ClipViewDefault {clip} {updateClip} bind:editClipId />
 		{/if}
 	{/each}
 </div>

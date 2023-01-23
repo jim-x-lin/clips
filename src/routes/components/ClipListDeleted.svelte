@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import DeletedClip from './DeletedClip.svelte';
+	import ClipViewDeleted from './ClipViewDeleted.svelte';
 
 	export let clips: ClipType[];
 
@@ -40,6 +40,6 @@
 		disabled={deletedClipsCount === 0}>Delete all</button
 	>
 	{#each organized(clips) as clip (clip.id)}
-		<DeletedClip {clip} {restoreClip} />
+		<ClipViewDeleted {clip} {restoreClip} />
 	{/each}
 </div>
