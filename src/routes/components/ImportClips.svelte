@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import { validClip } from '$lib/utils';
+	import { createId, validClip } from '$lib/utils';
 
 	export let clips: ClipType[];
 
@@ -18,16 +18,14 @@
 
 		try {
 			const clipsFromJson = JSON.parse(jsonText);
-			if (!Array.isArray(clips)) {
+			if (!Array.isArray(clipsFromJson)) {
 				alert('Not a valid file');
 				return;
 			}
 
 			const clipsToImport = clipsFromJson.filter((clipToImport: any) => {
 				if (!validClip(clipToImport)) return false;
-				const duplicate = clips.some(
-					(clip) => clip.content === clipToImport.content || clip.id === clipToImport.id
-				);
+				const duplicate = clips.some((clip) => clip.content === clipToImport.content);
 				if (duplicate) return false;
 				return true;
 			});
@@ -37,7 +35,16 @@
 			}
 			const cancelImport = !window.confirm(`Import ${clipsToImport.length} clips?`);
 			if (cancelImport) return;
-			clips = [...clips, ...clipsToImport];
+
+			clips = [
+				...clips,
+				...clipsToImport.map((clipToImport) => ({
+					...clipToImport,
+					id: createId(),
+					createdAtMs: Date.now(),
+					updatedAtMs: Date.now()
+				}))
+			];
 		} catch (err) {
 			alert('Error importing clips');
 		}
