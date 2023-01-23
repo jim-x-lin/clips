@@ -7,6 +7,13 @@
 
 	export let filterCriteria: FilterEnum;
 	export let clips: ClipType[];
+
+	function handleClickDeleteAllClips() {
+		const cancelDelete = !window.confirm(`Permanently delete all clips?`);
+		if (cancelDelete) return;
+
+		clips = [];
+	}
 </script>
 
 <div
@@ -29,8 +36,15 @@
 			>Deleted Clips</button
 		>
 	</div>
-	<div>
+	<div class="mb-4">
 		<ExportClips {clips} />
 		<ImportClips bind:clips />
+	</div>
+	<div class="mb-4">
+		<button
+			on:click={handleClickDeleteAllClips}
+			class="mb-4 w-full rounded-md border-none bg-red-500 px-2 py-1 text-white hover:bg-red-600"
+			>Delete All Clips</button
+		>
 	</div>
 </div>
