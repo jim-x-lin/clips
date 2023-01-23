@@ -4,6 +4,7 @@
 	import SideBar from './components/SideBar.svelte';
 	import ClipList from './components/ClipList.svelte';
 	import ClipListDeleted from './components/ClipListDeleted.svelte';
+	import ClipListEmpty from './components/ClipListEmpty.svelte';
 	import Debug from './components/Debug.svelte';
 	import { FilterEnum } from '$types/types';
 
@@ -15,7 +16,9 @@
 	<div class="container px-4 py-8">
 		<Debug />
 		{#if filterCriteria !== FilterEnum.DELETED}<AddClip bind:clips={$clipsStore} />{/if}
-		{#if filterCriteria !== FilterEnum.DELETED}
+		{#if $clipsStore.length === 0}
+			<ClipListEmpty bind:clips={$clipsStore} />
+		{:else if filterCriteria !== FilterEnum.DELETED}
 			<ClipList bind:clips={$clipsStore} {filterCriteria} />
 		{:else}
 			<ClipListDeleted bind:clips={$clipsStore} />
