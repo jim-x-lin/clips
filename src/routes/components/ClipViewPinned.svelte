@@ -23,7 +23,7 @@
 <div class="my-4 flex divide-x divide-solid rounded-md border border-yellow-500 hover:outline">
 	<ClipContent {clip} />
 	<button
-		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200"
+		class="hidden w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200 sm:inline"
 		on:click={handleClickUnpin}>unpin</button
 	>
 	<button

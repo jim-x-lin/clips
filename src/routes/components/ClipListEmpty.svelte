@@ -56,7 +56,7 @@ adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq
 	}
 </script>
 
-<div class="container mx-auto max-w-screen-lg text-center text-gray-400">
+<div class="text-center text-gray-400">
 	<p class="mb-4">
 		Click <span class="rounded-md bg-blue-200 px-4 py-1 text-white">Paste</span> to save text from your
 		clipboard

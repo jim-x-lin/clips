@@ -67,7 +67,7 @@
 	}
 </script>
 
-<div class="container mx-auto max-w-screen-lg">
+<div>
 	<ClipListPinned {clips} {updateClip} />
 	<OrganizeClips {updateSortCriteria} {sortCriteria} />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}

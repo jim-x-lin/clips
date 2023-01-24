@@ -32,10 +32,10 @@
 	}
 </script>
 
-<div class="container mx-auto mt-4 max-w-screen-lg">
+<div>
 	<button
 		on:click={removeDeletedClips}
-		class="w-24 rounded-md border-none bg-red-500 px-2 py-1 text-white hover:bg-red-600"
+		class="mb-4 w-24 rounded-md border-none bg-red-500 px-2 py-1 text-white hover:bg-red-600"
 		class:cursor-not-allowed={deletedClipsCount === 0}
 		disabled={deletedClipsCount === 0}>Delete all</button
 	>

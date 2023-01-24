@@ -66,7 +66,7 @@
 </script>
 
 {#if showTextArea}
-	<div class="mx-auto mb-8 max-w-xl divide-y rounded-lg border-2 border-blue-400">
+	<div class="mb-8 divide-y rounded-lg border-2 border-blue-400">
 		<textarea bind:value={contentToSave} class="h-16 w-full resize-y rounded-t-lg py-1 px-2" />
 		<div class="flex justify-center divide-x divide-solid border-blue-400">
 			<button
@@ -83,10 +83,10 @@
 		</div>
 	</div>
 {:else}
-	<div class="mx-auto mb-8 flex max-w-xl">
+	<div class="mx-auto mb-8 flex max-w-screen-sm">
 		<button
 			on:click={handleClickPaste}
-			class="mx-auto h-10 max-w-xl grow rounded-md border-2 bg-blue-500 py-1 px-2 text-white hover:bg-blue-600"
+			class="h-10 grow rounded-md border-2 bg-blue-500 py-1 px-2 text-white hover:bg-blue-600"
 			>Paste</button
 		>
 	</div>
