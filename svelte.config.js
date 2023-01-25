@@ -8,7 +8,11 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			// this sets the name of the file entrypoint
+			// using any other name results in a 404 error when deploying to vercel
+			fallback: 'index.html'
+		}),
 		prerender: { entries: [] },
 		alias: {
 			$types: 'src/types',
