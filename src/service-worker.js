@@ -47,5 +47,3 @@ self.addEventListener('fetch', (event) => {
 	}
 	event.respondWith(respond());
 });
-
-export default null;
