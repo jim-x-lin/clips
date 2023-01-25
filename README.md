@@ -1,16 +1,13 @@
 # clips
 
-A progressive clipboard manager, built with svelte kit and Tailwind CSS, hosted at ---
+A progressive clipboard manager, built with [SvelteKit](https://kit.svelte.dev/) and [Tailwind CSS](https://tailwindcss.com/), hosted at https://clips.jimxlin.com/
 
 ## TODO
 
-- [x] minimal mode
-- [x] manual format change
 - [ ] test coverage
 - [ ] animations
 - [ ] modals
 - [ ] grouping and/or tagging
-- [ ] clip annotation
 - [ ] settings
 - [ ] hotkeys (ctrl-c / ctrl-v on focus / hover, etc.)
 - [ ] indexDB to scale offline storage
