@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
 	import { SortEnum, FilterEnum } from '$types/types';
-	import ClipListPinned from '$components/ClipListPinned.svelte';
+	// import ClipListPinned from '$components/ClipListPinned.svelte';
 	import ClipViewDefault from '$components/ClipViewDefault.svelte';
 	import EditClip from '$components/EditClip.svelte';
 	import OrganizeClips from '$components/OrganizeClips.svelte';
@@ -70,7 +70,7 @@
 </script>
 
 <div>
-	<ClipListPinned {clips} {updateClip} />
+	<!-- <ClipListPinned {clips} {updateClip} /> -->
 	<OrganizeClips {updateSortCriteria} {sortCriteria} />
 	{#each organized(clips, sortCriteria, sortReverse, filterCriteria) as clip (clip.id)}
 		{#if clip.id === editClipId}
