@@ -20,7 +20,9 @@
 	}
 
 	function updateSortCriteria(criteria: SortEnum, toggleReverse: boolean): void {
-		sortReverse = !sortReverse;
+		if (toggleReverse) {
+			sortReverse = !sortReverse;
+		}
 		sortCriteria = criteria;
 		editClipId = undefined;
 	}
