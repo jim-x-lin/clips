@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { clipsStore } from '$stores/clips';
+	import { FilterEnum } from '$types/types';
 	import AddClip from './components/AddClip.svelte';
 	import SideBar from './components/SideBar.svelte';
 	import ClipList from './components/ClipList.svelte';
 	import ClipListDeleted from './components/ClipListDeleted.svelte';
 	import ClipListEmpty from './components/ClipListEmpty.svelte';
 	import Debug from './components/Debug.svelte';
-	import { FilterEnum } from '$types/types';
 
 	let filterCriteria: FilterEnum = FilterEnum.ALL;
 </script>

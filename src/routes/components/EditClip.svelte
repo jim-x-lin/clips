@@ -26,7 +26,7 @@
 
 	function handleClickSave() {
 		if (!editClipId) return;
-		if (formatCustom !== clip.format) {
+		if (formatCustom !== clip.format || formatCustom !== clip.formatCustom) {
 			updateClip({ ...clip, content: newContent, formatCustom });
 		} else {
 			updateClip({ ...clip, content: newContent });
@@ -41,7 +41,6 @@
 		<div class="grow py-1 px-2 text-center">
 			updated on {new Date(clip.updatedAtMs).toISOString().slice(0, 10)}
 		</div>
-		<!-- <div class="grow py-1 px-2 text-center">formatted as {clip.format}</div> -->
 		<div class="grow">
 			<select bind:value={formatCustom} class="h-full w-full cursor-pointer text-center text-base">
 				{#each ['text', 'longText', 'url', 'email', 'code', 'key'] as format}
