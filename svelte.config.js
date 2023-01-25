@@ -15,7 +15,8 @@ const config = {
 		prerender: { entries: [] },
 		alias: {
 			$types: 'src/types',
-			$stores: 'src/stores'
+			$stores: 'src/stores',
+			$components: 'src/routes/components'
 		}
 	}
 };

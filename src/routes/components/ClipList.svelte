@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
 	import { SortEnum, FilterEnum } from '$types/types';
-	import ClipListPinned from './ClipListPinned.svelte';
-	import ClipViewDefault from './ClipViewDefault.svelte';
-	import EditClip from './EditClip.svelte';
-	import OrganizeClips from './OrganizeClips.svelte';
+	import ClipListPinned from '$components/ClipListPinned.svelte';
+	import ClipViewDefault from '$components/ClipViewDefault.svelte';
+	import EditClip from '$components/EditClip.svelte';
+	import OrganizeClips from '$components/OrganizeClips.svelte';
 
 	export let clips: ClipType[];
 	export let filterCriteria: FilterEnum;

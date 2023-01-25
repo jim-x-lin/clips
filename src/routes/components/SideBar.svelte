@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Logo from './Logo.svelte';
-	import ExportClips from './ExportClips.svelte';
-	import ImportClips from './ImportClips.svelte';
+	import Logo from '$components/Logo.svelte';
+	import ExportClips from '$components/ExportClips.svelte';
+	import ImportClips from '$components/ImportClips.svelte';
 	import { FilterEnum } from '$types/types';
 	import type { ClipType } from '$types/types';
 

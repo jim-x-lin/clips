@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import ClipViewPinned from './ClipViewPinned.svelte';
+	import ClipViewPinned from '$components/ClipViewPinned.svelte';
 
 	export let clips: ClipType[];
 	export let updateClip: (clip: ClipType, timestamp?: boolean) => void;

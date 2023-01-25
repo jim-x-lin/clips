@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import ClipContent from './ClipContent.svelte';
+	import ClipContent from '$components/ClipContent.svelte';
 
 	export let clip: ClipType;
 	export let unpinClip: (clip: ClipType) => void;

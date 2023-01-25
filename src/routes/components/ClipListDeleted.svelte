@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
-	import ClipViewDeleted from './ClipViewDeleted.svelte';
+	import ClipViewDeleted from '$components/ClipViewDeleted.svelte';
 
 	export let clips: ClipType[];
 
