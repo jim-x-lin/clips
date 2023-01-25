@@ -6,7 +6,6 @@
 	import ClipList from '$components/ClipList.svelte';
 	import ClipListDeleted from '$components/ClipListDeleted.svelte';
 	import ClipListEmpty from '$components/ClipListEmpty.svelte';
-	// import Debug from '$components/Debug.svelte';
 
 	let filterCriteria: FilterEnum = FilterEnum.ALL;
 </script>
@@ -16,7 +15,6 @@
 		<SideBar bind:filterCriteria bind:clips={$clipsStore} />
 	</div>
 	<div class="mx-auto w-11/12 max-w-screen-lg px-4 py-8 sm:w-9/12 xl:w-10/12">
-		<!-- <Debug /> -->
 		{#if filterCriteria !== FilterEnum.DELETED}<AddClip bind:clips={$clipsStore} />{/if}
 		{#if $clipsStore.length === 0}
 			<ClipListEmpty bind:clips={$clipsStore} />
