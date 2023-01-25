@@ -67,7 +67,11 @@
 
 {#if showTextArea}
 	<div class="mb-8 divide-y rounded-lg border-2 border-blue-400">
-		<textarea bind:value={contentToSave} class="h-16 w-full resize-y rounded-t-lg py-1 px-2" />
+		<textarea
+			bind:value={contentToSave}
+			autofocus
+			class="h-16 w-full resize-y rounded-t-lg py-1 px-2"
+		/>
 		<div class="flex justify-center divide-x divide-solid border-blue-400">
 			<button
 				on:click={handleClickCancel}
