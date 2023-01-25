@@ -8,10 +8,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// configured as an SPA
-		adapter: adapter({
-			fallback: '200.html'
-		}),
+		adapter: adapter(),
 		prerender: { entries: [] },
 		alias: {
 			$types: 'src/types',
