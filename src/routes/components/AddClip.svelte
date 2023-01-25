@@ -28,7 +28,10 @@
 
 	async function handleClickPaste() {
 		try {
-			contentToSave = await navigator.clipboard.readText();
+			// workaround for FireFox
+			if (navigator.clipboard.readText) {
+				contentToSave = await navigator.clipboard.readText();
+			}
 			showTextArea = true;
 		} catch (err) {
 			console.error('Failed to read clipboard contents: ', err);
