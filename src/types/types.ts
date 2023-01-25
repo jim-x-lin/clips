@@ -8,6 +8,7 @@ export type ClipType = {
 	pinnedAtMs?: number;
 	content: string;
 	format: FormatType;
+	formatCustom?: FormatType;
 	copyCount: number;
 };
 

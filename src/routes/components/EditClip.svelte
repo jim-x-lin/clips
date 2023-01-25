@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ClipType } from '$types/types';
+	import type { ClipType, FormatType } from '$types/types';
 
 	export let clip: ClipType;
 	export let editClipId: string | undefined;
@@ -8,6 +8,7 @@
 	$: height = clip.format === 'longText' ? 'h-40' : 'h-16';
 
 	let newContent: string = clip.content;
+	let formatCustom: FormatType = clip.formatCustom || clip.format;
 
 	function handleClickCancel() {
 		editClipId = undefined;
@@ -25,7 +26,11 @@
 
 	function handleClickSave() {
 		if (!editClipId) return;
-		updateClip({ ...clip, content: newContent });
+		if (formatCustom !== clip.format) {
+			updateClip({ ...clip, content: newContent, formatCustom });
+		} else {
+			updateClip({ ...clip, content: newContent });
+		}
 	}
 </script>
 
@@ -36,7 +41,14 @@
 		<div class="grow py-1 px-2 text-center">
 			updated on {new Date(clip.updatedAtMs).toISOString().slice(0, 10)}
 		</div>
-		<div class="grow py-1 px-2 text-center">formatted as {clip.format}</div>
+		<!-- <div class="grow py-1 px-2 text-center">formatted as {clip.format}</div> -->
+		<div class="grow">
+			<select bind:value={formatCustom} class="h-full w-full cursor-pointer text-center text-base">
+				{#each ['text', 'longText', 'url', 'email', 'code', 'key'] as format}
+					<option value={format}>{format}</option>
+				{/each}
+			</select>
+		</div>
 		<div class="grow py-1 px-2 text-center">copied {clip.copyCount} times</div>
 	</div>
 	<textarea bind:value={newContent} class="w-full py-1 px-2 ring-0 {height}" />
