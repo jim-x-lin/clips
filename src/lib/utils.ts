@@ -1,7 +1,7 @@
 import { customAlphabet } from 'nanoid/non-secure';
 import type { FormatType } from '$types/types';
 
-export const createId = () => {
+export const createId = (): string => {
 	const nanoid = customAlphabet('1234567890abcdefghijklmnoprqstuvwxyz', 10);
 	return `${Date.now()}-${nanoid()}`;
 };
@@ -25,7 +25,7 @@ export const categorizeContent = (content: string): FormatType => {
 	return 'text';
 };
 
-export const validClip = (clip: any) => {
+export const validClip = (clip: any): boolean => {
 	if (typeof clip.id !== 'string') return false;
 	if (typeof clip.createdAtMs !== 'number') return false;
 	if (typeof clip.updatedAtMs !== 'number') return false;

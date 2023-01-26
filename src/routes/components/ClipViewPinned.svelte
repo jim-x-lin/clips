@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ClipType } from '$types/types';
 	import ClipContent from '$components/ClipContent.svelte';
+	import CopyClipContent from '$components/CopyClipContent.svelte';
 
 	export let clip: ClipType;
 	export let unpinClip: (clip: ClipType) => void;
@@ -8,15 +9,6 @@
 
 	function handleClickUnpin() {
 		unpinClip(clip);
-	}
-
-	async function handleClickCopy() {
-		try {
-			await navigator.clipboard.writeText(clip.content);
-			updateClip({ ...clip, copyCount: clip.copyCount + 1 }, false);
-		} catch (err) {
-			console.log('Error writing to clipboard', err);
-		}
 	}
 </script>
 
@@ -26,8 +18,5 @@
 		class="hidden w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200 sm:inline"
 		on:click={handleClickUnpin}>unpin</button
 	>
-	<button
-		on:click={handleClickCopy}
-		class="w-16 px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200">copy</button
-	>
+	<CopyClipContent {clip} {updateClip} />
 </div>
